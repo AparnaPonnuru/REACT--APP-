@@ -1,0 +1,30 @@
+.site-header {
+  background-color: #4f46e5; /* Purple header */
+  color: white;
+  padding: 12px 0;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header .brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.site-header .nav a {
+  color: white;
+  margin-left: 16px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-header .nav a:hover {
+  text-decoration: underline;
+}
