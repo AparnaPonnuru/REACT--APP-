@@ -1,8 +1,12 @@
 /* Import all component-specific CSS files */
 @import './components/Header.css';
-@import './components/Signup.css';
+@import './components/Questions.css';
 @import './components/About.css';
 @import './components/Footer.css';
+/* if Signup.css is actually at src/components/Signup/Signup.css */
+@import './components/Signup.css';
+
+
 
 /* Optional: global styles for the whole app */
 body, html {

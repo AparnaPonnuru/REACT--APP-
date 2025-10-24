@@ -1,5 +1,5 @@
 import React from 'react';
-import '../'; // optional, or keep it in App.css
+import './Footer.css'; // Keep your footer styling here
 
 export default function Footer() {
   const handleSubscribe = (e) => {
@@ -14,11 +14,17 @@ export default function Footer() {
   return (
     <footer className="site-footer-rect">
       <div className="footer-container">
+        {/* Logo and contact section */}
         <div className="footer-col">
-          <div className="logo-placeholder">SkillNaav</div>
-          <p>Email: info@eduease.com</p>
+          <div className="footer-brand">
+            <img src="/logo.png" alt="EduBase Logo" className="footer-logo" />
+            <span className="footer-brand-name">EduBase</span>
+          </div>
+          <p>Email: info@edubase.com</p>
           <p>Phone: +91 98765 43210</p>
         </div>
+
+        {/* Features section */}
         <div className="footer-col">
           <h3>Features</h3>
           <ul>
@@ -27,6 +33,8 @@ export default function Footer() {
             <li>Document Assistance</li>
           </ul>
         </div>
+
+        {/* Team section */}
         <div className="footer-col">
           <h3>Team</h3>
           <ul>
@@ -35,9 +43,11 @@ export default function Footer() {
             <li>Legal Advisor</li>
           </ul>
         </div>
+
+        {/* About / Subscribe section */}
         <div className="footer-col">
           <h3>About Us</h3>
-          <p>Email: about@eduease.com</p>
+          <p>Email: about@edubase.com</p>
           <p>Phone: +91 99887 76655</p>
           <form onSubmit={handleSubscribe}>
             <input type="email" name="email" placeholder="Your email" required />
@@ -48,4 +58,3 @@ export default function Footer() {
     </footer>
   );
 }
-

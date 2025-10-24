@@ -105,3 +105,26 @@
   .newsletter-form button { width: 100%; }
   .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
 }
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.footer-logo {
+  width: 40px;       /* same as header logo for consistency */
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 8px; /* optional */
+}
+
+.footer-brand-name {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+

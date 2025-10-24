@@ -1,16 +1,6 @@
-.hero {
-  background-color: #e0e7ff; /* light purple background */
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-  color: #1e3a8a;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #374151;
+/* src/components/Signup.css */
+.signup {
+  display: block;
+  padding: 12px;
+  font-family: Arial, sans-serif;
 }
