@@ -1,0 +1,325 @@
+/* src/pages/Profile.css
+
+  Enhanced styles and subtle animations for the Profile page.
+  - Keeps original layout and class names intact (no JS changes required).
+  - Adds theme variables, float/entry animations, focus effects, button micro-interactions,
+    polished resume card, and accessible reduced-motion support.
+*/
+
+:root{
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --accent: #2563eb;
+  --accent-2: #10b981;
+  --danger: #ef4444;
+  --shadow: 0 6px 22px rgba(25,33,47,0.08);
+}
+
+/* Page wrapper */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.04) 0%, var(--bg) 60%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* card */
+.profile-form {
+  background: var(--card);
+  padding: 32px 40px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  width: 820px;
+  max-width: calc(100% - 40px);
+  position: relative;
+  overflow: visible;
+  transform-origin: center top;
+  animation: card-entry 520ms cubic-bezier(.2,.9,.2,1);
+  border: 1px solid rgba(37,99,235,0.04);
+}
+
+/* decorative floating badge (pure CSS) */
+.profile-form::before{
+  content: "";
+  position: absolute;
+  right: -36px;
+  top: -36px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(16,185,129,0.06));
+  box-shadow: 0 10px 30px rgba(16,185,129,0.04);
+  filter: blur(6px);
+  z-index: 0;
+  transform: rotate(12deg);
+}
+
+/* Title */
+.profile-title {
+  text-align: center;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  position: relative;
+  z-index: 2;
+}
+
+/* subtle shimmer under title */
+.profile-title::after{
+  content: "";
+  display: block;
+  height: 4px;
+  width: 120px;
+  margin: 8px auto 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(37,99,235,0.18), rgba(16,185,129,0.18));
+  animation: shimmer 2.8s linear infinite;
+  opacity: 0.9;
+}
+
+/* section headers */
+.section-title {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 700;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  position: relative;
+  z-index: 2;
+  transition: color 220ms ease;
+}
+
+/* animated accent bar on section hover */
+.section-title:hover{
+  color: var(--accent);
+}
+
+.section-title::before{
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 380ms cubic-bezier(.2,.9,.2,1);
+}
+.section-title:hover::before{ transform: scaleY(1); }
+
+/* grid rows: label (fixed) | input (fluid) */
+.profile-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-row label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* inputs */
+.profile-row input,
+.profile-row select,
+.profile-row textarea {
+  padding: 10px 12px;
+  border: 1px solid #e6e9ee;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: #fff;
+  box-sizing: border-box;
+  transition: box-shadow 180ms ease, border-color 180ms ease, transform 260ms cubic-bezier(.2,.9,.2,1);
+}
+
+.profile-row textarea { resize: vertical; min-height: 64px; }
+
+/* focus styles with subtle lift */
+.profile-row input:focus,
+.profile-row select:focus,
+.profile-row textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 8px 26px rgba(37,99,235,0.08);
+  transform: translateY(-2px);
+}
+
+/* floating placeholder label effect (works with existing label element layout) */
+.profile-row:has(input:focus) > label,
+.profile-row:has(select:focus) > label,
+.profile-row:has(textarea:focus) > label {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* resume area */
+.resume-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resume-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.resume-name {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 600;
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* polished resume actions */
+.resume-actions { display: flex; gap: 10px; margin-left: auto; }
+
+.btn-download,
+.btn-remove {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.btn-download {
+  background: linear-gradient(90deg, var(--accent-2), #06b6d4);
+  color: white;
+  box-shadow: 0 6px 16px rgba(16,185,129,0.12);
+}
+.btn-download:hover{ transform: translateY(-2px); }
+
+.btn-remove {
+  background: linear-gradient(90deg, #fb7185, var(--danger));
+  color: white;
+}
+.btn-remove:hover{ transform: translateY(-2px); }
+
+.resume-hint { color: var(--muted); font-size: 13px; }
+
+/* buttons */
+.profile-buttons { display: flex; justify-content: center; margin-top: 18px; gap: 12px; }
+
+.btn-save,
+.btn-logout {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms ease, opacity 120ms ease;
+}
+
+.btn-save {
+  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  color: white;
+  box-shadow: 0 10px 30px rgba(37,99,235,0.12);
+}
+.btn-save:hover { transform: translateY(-3px) scale(1.01); }
+
+.btn-logout {
+  background: linear-gradient(90deg, #fb7185, var(--danger));
+  color: white;
+  box-shadow: 0 8px 22px rgba(239,68,68,0.10);
+}
+.btn-logout:hover { transform: translateY(-3px) scale(1.01); }
+
+/* subtle focus-visible outlines for keyboard users */
+.btn-save:focus-visible, .btn-logout:focus-visible,
+.profile-row input:focus-visible, .profile-row textarea:focus-visible, .profile-row select:focus-visible {
+  outline: 3px solid rgba(37,99,235,0.12);
+  outline-offset: 4px;
+}
+
+/* floating micro-animation for the whole card */
+@keyframes float-slow {
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0); }
+}
+
+/* entry animation for card */
+@keyframes card-entry {
+  0%{ transform: translateY(-14px) scale(.995); opacity: 0; }
+  60%{ transform: translateY(2px) scale(1.002); opacity: 1; }
+  100%{ transform: translateY(0) scale(1); }
+}
+
+/* shimmer used under title */
+@keyframes shimmer{
+  0%{ background-position: -180px 0; }
+  100%{ background-position: 280px 0; }
+}
+
+/* small pulse for resume name when present */
+@keyframes pulse {
+  0%{ transform: scale(1); }
+  50%{ transform: scale(1.01); }
+  100%{ transform: scale(1); }
+}
+
+.resume-name { animation: pulse 6s ease-in-out infinite; }
+
+/* responsive */
+@media (max-width: 900px){
+  .profile-form { width: 100%; padding: 28px; }
+  .profile-row { grid-template-columns: 150px 1fr; }
+}
+
+@media (max-width: 700px){
+  .profile-form { padding: 20px; width: 100%; }
+  .profile-row { grid-template-columns: 1fr; }
+  .section-title { border-left: none; padding-left: 0; }
+  .resume-actions { margin-left: 0; }
+  .profile-form::before{ display: none; }
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .profile-form, .resume-name, .profile-title::after { animation: none !important; }
+  .profile-row input:focus, .profile-row textarea:focus, .profile-row select:focus { transform: none !important; }
+}
+
+/* small helper: visible file input styling override for nicer button */
+.resume-block input[type=file] {
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px dashed rgba(16,24,40,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(250,250,250,0.6));
+}
+
+/* finishing touch: gentle backdrop when hovering card */
+.profile-form:hover { box-shadow: 0 18px 48px rgba(25,33,47,0.12); transform: translateY(-3px); }
+
+/* small utility */
+.text-muted{ color: var(--muted); font-size: 13px; }

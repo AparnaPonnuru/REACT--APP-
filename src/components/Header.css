@@ -1,0 +1,99 @@
+.site-header {
+  background-color: #6464d7; /* Purple header */
+  color: white;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  width: 40px;      /* Adjust size as needed */
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 8px; /* Optional, makes corners soft */
+}
+
+.brand-name {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+/* container layout */
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 12px;
+}
+
+/* brand */
+.site-header .brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white; /* Ensures brand text is white */
+}
+.site-header .brand a {
+  color: white;
+  text-decoration: none;
+}
+
+/* main navigation: use flex + gap so items don't run together */
+.main-nav {
+  display: flex;
+  gap: 24px; /* space between nav items */
+  align-items: center;
+}
+
+/* individual nav link */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: lowercase; /* keep matching your design */
+  padding: 6px 2px;
+  transition: text-decoration 0.15s ease, opacity 0.15s ease;
+}
+
+/* hover and active styles */
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: underline;
+  outline: none;
+  opacity: 0.95;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* auth buttons on the right */
+.auth-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.btn-link {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ensure every element inside header stays white */
+.site-header * {
+  color: white !important;
+}
