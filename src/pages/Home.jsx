@@ -17,7 +17,7 @@ export default function Home() {
       <main>
         {/* Hero / Intro */}
         <section style={{ padding: '24px 16px', textAlign: 'center' }}>
-          <h2>Your world, your internship</h2>
+          <h2>Your world, yourrrrrrrr</h2>
           <p>Discover Global Internships Designed Just for You</p>
         </section>
 
